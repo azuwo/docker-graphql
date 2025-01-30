@@ -27,8 +27,11 @@ jobs:
         echo "Fin del login"
 
     - name: Build Docker Image
-      run: docker build -t azuwodev/docker-graphql:0.0.2 .
+      run: | 
+        docker build -t azuwodev/docker-graphql:0.0.2 .
+        docker build -t azuwodev/docker-graphql:latest .
 
     - name: Push Docker Image
       run: |
         docker push azuwodev/docker-graphql:0.0.2
+        docker push azuwodev/docker-graphql:latest
