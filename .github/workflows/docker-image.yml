@@ -38,7 +38,7 @@ jobs:
         NEW_VERSION: ${{ steps.version_generator.outputs.version }}
       run: | 
         echo "Build new version image: $NEW_VERSION"
-        docker build -t azuwodev/docker-graphql:0.0.2 .
+        docker build -t azuwodev/docker-graphql:$NEW_VERSION .
         docker build -t azuwodev/docker-graphql:latest .
 
     - name: Push Docker Image
@@ -46,5 +46,5 @@ jobs:
         NEW_VERSION: ${{ steps.version_generator.outputs.version }}
       run: |
         echo "Push new version image: $NEW_VERSION"
-        docker push azuwodev/docker-graphql:0.0.2
+        docker push azuwodev/docker-graphql:$NEW_VERSION
         docker push azuwodev/docker-graphql:latest
